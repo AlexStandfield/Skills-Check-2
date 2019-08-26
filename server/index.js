@@ -18,7 +18,7 @@ massive(CONNECTION_STRING)
 app.use(express.json())
 app.use(cors())
 
-app.post('/api/inventory', ctrl.createProduct)
+app.post('/api/product', ctrl.createProduct)
 app.get('/api/inventory', ctrl.getProducts)
 app.put('/api/inventory/:id', ctrl.updateProduct)
 app.delete('/api/inventory/:id', ctrl.deleteProduct)

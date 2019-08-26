@@ -1,34 +1,35 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 
+
 import Dashboard from './Components/Dashboard/Dashboard'
 import Form from './Components/Form/Form'
 import Header from './Components/Header/Header'
 
+import 'reset-css'
+
 export default class App extends Component {
-  constructor(){
-    super()
 
-    this.state = {
-        inventory: []
-    }
-  } 
+  componentDidMount(){
+    console.log('CDM');
 
-  componentDidMount= () => {
-        
-    axios.get(`/api/inventory`)
-    .then((res) => {
-        this.getProducts()
-        })
-    .catch(err => {
-        console.log(err)
+    axios.get('/api/inventory')
+    .then(() => {
+    console.log('its working')
+    this.getProducts();
+    
+  })
+    .catch(error => {
+      console.log(error)
     })
-}
+  }
 
   render() {
+    
     return (
+      
       <div>
-        <Dashboard inventory={this.state.inventory} />
+        <Dashboard />
         <Form  />
         <Header/>
       </div>
